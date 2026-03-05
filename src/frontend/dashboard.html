@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Study Planner</h3>
+      <ul>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+        <li><a href="#">📋 Tasks</a></li>
+        <li><a href="#">⚙️ Settings</a></li>
+      </ul>
+      <ul>
+        <li><button id="logoutBtn">📕 Logout</button></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <h2>Dashboard Overview</h2>
+      <div id="tasks"></div>
+      <h3>Task Progress</h3>
+      <canvas id="taskChart"></canvas>
+    </main>
+  </div>
+</body>
+
+      <!-- Chart Section -->
+      <h3>Task Progress</h3>
+      <canvas id="taskChart" width="400" height="200"></canvas>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
