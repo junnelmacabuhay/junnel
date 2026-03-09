@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - EduFlow</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <h3>📚 EduFlow</h3>
+      <ul>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+        <li><a href="tasks.html">📋 Tasks</a></li>
+        <li><a href="settings.html" class="active">⚙️ Settings</a></li>
+        <li><a href="profile.html">👤 Profile</a></li>
+      </ul>
+      <button id="logoutBtn">📕 Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <div class="container-fluid">
+        <header class="mb-4">
+            <h2 class="fw-bold">App Settings</h2>
+            <p class="text-muted">Manage your account preferences and application appearance.</p>
+        </header>
+
+        <div class="row g-4">
+          <div class="col-lg-3">
+            <div class="list-group shadow-sm border-0 rounded-4 overflow-hidden">
+                <a href="#account" class="list-group-item list-group-item-action border-0 py-3 active">
+                    <i class="bi bi-person-gear me-2"></i> Account
+                </a>
+                <a href="#appearance" class="list-group-item list-group-item-action border-0 py-3">
+                    <i class="bi bi-palette me-2"></i> Appearance
+                </a>
+                <a href="#notifications" class="list-group-item list-group-item-action border-0 py-3">
+                    <i class="bi bi-bell me-2"></i> Notifications
+                </a>
+            </div>
+          </div>
+
+          <div class="col-lg-9">
+            <form id="settingsForm">
+                
+              <div class="card border-0 shadow-sm rounded-4 mb-4" id="account">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">Account Information</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Display Name</label>
+                            <input type="text" class="form-control" value="Junnel" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Email Address</label>
+                          <input type="email" id="emailInput" class="form-control" value="junnel@example.com">
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="card border-0 shadow-sm rounded-4 mb-4" id="appearance">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">Appearance</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h6 class="mb-1 fw-bold">Theme Mode</h6>
+                            <p class="text-muted small mb-0">Switch between light and dark modes.</p>
+                        </div>
+                        <select id="themeSelect" class="form-select w-auto">
+                            <option value="light">☀️ Light</option>
+                            <option value="dark">🌙 Dark</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+
+              <div class="card border-0 shadow-sm rounded-4 mb-4" id="notifications">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">Notifications</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="form-check form-switch py-2">
+                        <input class="form-check-input" type="checkbox" id="emailNotif" checked>
+                        <label class="form-check-label ms-2" for="emailNotif">
+                            <span class="d-block fw-bold">Email Summaries</span>
+                            <span class="text-muted small">Receive weekly study progress via email.</span>
+                        </label>
+                    </div>
+                    <hr class="opacity-5">
+                    <div class="form-check form-switch py-2">
+                        <input class="form-check-input" type="checkbox" id="taskReminders" checked>
+                        <label class="form-check-label ms-2" for="taskReminders">
+                            <span class="d-block fw-bold">Task Reminders</span>
+                            <span class="text-muted small">Get notified when a task is approaching its deadline.</span>
+                        </label>
+                    </div>
+                </div>
+              </div>
+
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm rounded-3">Save All Changes</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

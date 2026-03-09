@@ -1,134 +1,340 @@
-/* Reset box-sizing */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+    --sidebar-bg: #1cc88a;
+    --main-bg: #f0f2f5;
+    --primary-color: #4e73df;
+    --accent-green: #1cc88a;
+    --text-main: #2d3436;
 }
 
-/* General page styling */
 body {
-  font-family: Arial, sans-serif;
+    background-color: blue;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    color: var(--text-main);
 }
 
-/* =========================
-   LOGIN PAGE STYLES
-   ========================= */
-body.login-page {
-  background-color: #f4f6f9;
-  display: flex;              /* enables flexbox */
-  justify-content: center;    /* centers horizontally */
-  align-items: center;        /* centers vertically */
-  height: 100vh;              /* full viewport height */
-}
-
-.container {
-  max-width: 350px;
-  width: 100%;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-h2 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  display: block;
-}
-
-button {
-  background: #007bff;
-  color: white;
-  border: 1px solid #007bff;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-#message {
-  margin-top: 10px;
-  color: red;
-}
-
-
-/* =========================
-   DASHBOARD LAYOUT STYLES
-   ========================= */
 .dashboard-layout {
-  display: flex;       /* sidebar + main side by side */
-  height: 100vh;       /* full viewport height */
+    display: flex;
+    min-height: 100vh;
 }
 
-/* Sidebar */
+/* --- Dark Espresso Sidebar Styling --- */
 .sidebar {
-  width: 220px;
-  background: #2c3e50;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* keeps logout at bottom */
+    width: 260px;
+    /* Deep Onyx to Dark Roast Gradient */
+    background: linear-gradient(180deg, #1a1a1a 0%, #2c1b18 100%);
+    border-right: 1px solid #33221d; 
+    padding: 2rem 1.5rem;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar h3 {
-  margin-bottom: 20px;
-  text-align: center;
+    /* Pure White for the Brand */
+    color: blue; 
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
 }
 
-.sidebar ul li {
-  margin: 15px 0;
+.sidebar ul li { margin-bottom: 0.5rem; }
+
+.sidebar ul li a {
+    text-decoration: none;
+    /* Muted Cocoa Grey */
+    color: black; 
+    padding: 0.8rem 1rem;
+    display: block;
+    border-radius: 10px;
+    transition: all 0.3s;
+    font-weight: 600;
 }
 
-.sidebar ul li a,
-.sidebar ul li button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  color: white;
-  text-decoration: none;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s;
+/* Hover and Active State: Mocha Highlight */
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background: rgba(0, 0, 0, 0.404); /* Subtle Mocha tint */
+    color: #d7ccc8; /* Creamy White */
+    padding-left: 1.5rem;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
 }
 
-.sidebar ul li a:hover,
-.sidebar ul li button:hover {
-  background: #34495e;
+#logoutBtn {
+    background: #fff1f0;
+    color: #e74a3b;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Main content */
+#logoutBtn:hover { background: #ffdada; }
+
+/* Main Content area */
 .main-content {
-  flex: 1;             /* fills remaining space */
-  padding: 20px;
-  background: #f4f6f9;
-  overflow-y: auto;
+    margin-left: 260px;
+    padding: 3rem;
+    width: 100%;
 }
 
-.main-content h2 {
-  margin-bottom: 20px;
+/* Card & Section Styling */
+.section, .card, .profile-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+    margin-bottom: 2rem;
 }
 
-.main-content h3 {
-  margin: 20px 0 10px;
+h2 { font-weight: 700; color: #4e73df; margin-bottom: 1.5rem; }
+
+/* Form Elements */
+input, select {
+    border: 1px solid #d1d3e2;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    margin-right: 10px;
+    outline: none;
+}
+
+button[type="submit"] {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Specific component styles */
+.profile-card img {
+    width: 100px;
+    border-radius: 50%;
+    border: 4px solid #f8f9fc;
+    margin-bottom: 1rem;
+}
+/* Card Header Styling */
+.card-header {
+    background-color: transparent !important;
+}
+
+/* Custom form switches for a "SaaS" feel */
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-control:read-only {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Group item styling */
+.list-group-item.active {
+    background-color: #f0f4ff !important;
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+.list-group-item-action:hover {
+    background-color: #f8f9fc;
+}
+/* Profile Banner & Image Styling */
+.profile-banner {
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-img-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Info Row Styling for a "Clean List" feel */
+.info-row {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+/* Custom Progress Bar for Profile Card */
+.progress-bar {
+    border-radius: 10px;
+}
+
+/* Shadow for the circular avatar */
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+/* Table Aesthetic */
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eef2ff;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #fcfdfe;
+}
+
+/* Custom File Input design */
+.border-dashed {
+    border-style: dashed !important;
+    background-color: #fafbff;
+}
+
+/* Badge colors to match Premium Profile */
+.bg-success-subtle { background-color: #e6fffa !important; color: #008672 !important; }
+.bg-warning-subtle { background-color: #fffaf0 !important; color: #b7791f !important; }
+
+/* Action buttons */
+.btn-light {
+    background-color: white;
+    border-color: #e9ecef !important;
+}
+.btn-light:hover {
+    background-color: #f8f9fa;
+}
+/* --- LOGIN PAGE STYLES --- */
+.login-page {
+    /* Study-themed background image */
+    background: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Dark overlay to make the image less distracting */
+.login-page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.login-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(12px); /* Frosty glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.input-group-text {
+    border-radius: 10px 0 0 10px;
+}
+
+.form-control {
+    border-radius: 0 10px 10px 0;
+    padding: 0.7rem;
+}
+
+.btn-primary {
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+/* --- DARK MODE --- */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* Ensure the main content and sidebar also change */
+body.dark-mode .main-content,
+body.dark-mode .sidebar {
+    background-color: #1e1e1e !important;
+    color: white !important;
+}
+
+body.dark-mode .card {
+    background-color: #2d2d2d !important;
+    color: white !important;
+    border: 1px solid #444 !important;
+}
+
+body.dark-mode .card-header {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+body.dark-mode input, 
+body.dark-mode select {
+    background-color: #333 !important;
+    color: white !important;
+    border: 1px solid #555 !important;
+}
+/* Ensure the layout allows for a sidebar and scrolling content */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1000;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 260px; /* Matches sidebar width */
+    padding: 2rem;
+    background-color: #f8f9fc;
+    min-height: 100vh;
+}
+
+/* RESPONSIVE FIX: For Tablets and Phones */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0; /* Content takes full width on mobile */
+        padding: 1rem;
+    }
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar off-screen */
+        transition: 0.3s;
+    }
+    /* Optional: Add a class to show sidebar when a button is clicked */
+    .sidebar.show {
+        transform: translateX(0);
+    }
 }
