@@ -309,3 +309,158 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    
+    if (calendarEl) {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            // Makes the boxes clickable
+            dateClick: function(info) {
+                const modal = new bootstrap.Modal(document.getElementById('eventModal'));
+                document.getElementById('modalTitle').innerText = "Task for " + info.dateStr;
+                modal.show();
+
+                // Save button logic
+                document.getElementById('saveTaskBtn').onclick = function() {
+                    const task = document.getElementById('taskInput').value;
+                    if (task) {
+                        calendar.addEvent({
+                            title: task,
+                            start: info.dateStr,
+                            allDay: true
+                        });
+                        document.getElementById('taskInput').value = ''; 
+                        modal.hide();
+                    }
+                };
+            },
+        
+        });
+        calendar.render();
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    
+    if (calendarEl) {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            
+            // 1. ADD TASK (Clicking an empty date)
+            dateClick: function(info) {
+                const modal = new bootstrap.Modal(document.getElementById('eventModal'));
+                document.getElementById('modalTitle').innerText = "Task for " + info.dateStr;
+                modal.show();
+
+                document.getElementById('saveTaskBtn').onclick = function() {
+                    const task = document.getElementById('taskInput').value;
+                    if (task) {
+                        calendar.addEvent({
+                            id: Date.now().toString(), // Give it a unique ID for deletion
+                            title: task,
+                            start: info.dateStr,
+                            allDay: true
+                        });
+                        document.getElementById('taskInput').value = ''; 
+                        modal.hide();
+                    }
+                };
+            },
+
+            // 2. DELETE TASK (Clicking an existing event)
+            eventClick: function(info) {
+                const confirmDelete = confirm(`Do you want to delete the task: "${info.event.title}"?`);
+                if (confirmDelete) {
+                    info.event.remove(); // This removes it from the calendar UI
+                }
+            },
+
+            events: [
+                { id: '1', title: 'Project Beta', start: '2026-03-12' },
+                { id: '2', title: 'Reading Assignment', start: '2026-03-18' }
+            ]
+        });
+        calendar.render();
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    
+    if (calendarEl) {
+        // 1. Get saved tasks or start with an empty list if none exist
+        let savedEvents = JSON.parse(localStorage.getItem('eduFlowTasks')) || [];
+
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            
+            // 2. Point to our data
+            events: savedEvents,
+
+            // 3. ADDING A TASK
+            dateClick: function(info) {
+                const modalElement = document.getElementById('eventModal');
+                const modal = new bootstrap.Modal(modalElement);
+                document.getElementById('modalTitle').innerText = "New Task: " + info.dateStr;
+                modal.show();
+
+                // Unbind previous clicks to prevent multiple saves
+                const saveBtn = document.getElementById('saveTaskBtn');
+                saveBtn.onclick = function() {
+                    const taskTitle = document.getElementById('taskInput').value;
+                    if (taskTitle) {
+                        const newEvent = {
+                            id: String(Date.now()), // Unique ID
+                            title: taskTitle,
+                            start: info.dateStr,
+                            allDay: true
+                        };
+
+                        // Update UI
+                        calendar.addEvent(newEvent);
+                        
+                        // Update LocalStorage
+                        savedEvents.push(newEvent);
+                        localStorage.setItem('eduFlowTasks', JSON.stringify(savedEvents));
+
+                        // Cleanup
+                        document.getElementById('taskInput').value = ''; 
+                        modal.hide();
+                    }
+                };
+            },
+
+            // 4. DELETING A TASK
+            eventClick: function(info) {
+                if (confirm(`Delete "${info.event.title}"?`)) {
+                    // Remove from UI
+                    info.event.remove(); 
+                    
+                    // Remove from LocalStorage
+                    savedEvents = savedEvents.filter(ev => String(ev.id) !== String(info.event.id));
+                    localStorage.setItem('eduFlowTasks', JSON.stringify(savedEvents));
+                }
+            }
+        });
+
+        calendar.render();
+    }
+});
