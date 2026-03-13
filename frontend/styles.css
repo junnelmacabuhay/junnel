@@ -395,3 +395,94 @@ body.dark-mode select {
 
 /* Optional: Red styling for a "Delete" feel when you click, 
    though the browser 'confirm' handles the logic */
+   /* Table Styles */
+.table thead th {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fc;
+}
+
+/* File Input Dotted Border */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* Badge Tweaks */
+.bg-success-subtle { background-color: #d1e7dd !important; }
+.bg-warning-subtle { background-color: #fff3cd !important; }
+
+.fc-daygrid-day:hover {
+    background-color: #f8f9fa !important;
+    cursor: cell; /* Changes cursor to a plus/cell icon */
+}
+
+.fc-event {
+    background-color: #4e73df !important;
+    border: none !important;
+    padding: 3px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.fc-event:hover {
+    filter: brightness(90%);
+}
+/* Dashboard Specifics */
+.section h2 {
+    color: #2e3b4e;
+    font-size: 1.8rem;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Vibrant gradients for sidebar or buttons */
+.sidebar {
+    background: linear-gradient(180deg, #1a1a1a 0%, #2c3e50 100%);
+}
+
+#logoutBtn {
+    background: #63e73b;
+    border: none;
+    transition: 0.2s;
+}
+
+#logoutBtn:hover {
+    background: #be2617;
+    box-shadow: 0 4px 12px rgba(231, 74, 59, 0.3);
+}
+
+.bg-primary { background-color: #4e73df !important; }
+.bg-success { background-color: #1cc88a !important; }
+.bg-warning { background-color: #f6c23e !important; }
+/* Vibrant Gradients */
+.bg-gradient-blue { background: linear-gradient(135deg, #4e73df 0%, #224abe 100%); }
+.bg-gradient-orange { background: linear-gradient(135deg, #f6c23e 0%, #e67e22 100%); }
+.bg-gradient-green { background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%); }
+
+.stat-card {
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.bg-primary-subtle {
+    background-color: rgba(78, 115, 223, 0.1) !important;
+}
+
+canvas {
+    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.05));
+}
