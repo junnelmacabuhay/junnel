@@ -66,7 +66,6 @@ Students who want to monitor their overall productivity and see exactly how many
 The dashboard serves as the command center, featuring:
 * **Vibrant Stat Cards:** High-contrast cards showing Total Tasks, Pending Tasks, and Completed Tasks.
 * **Progress Graph:** A Chart.js-powered line or bar graph showing study activity.
-* **Quick Navigation:** A specialized button to trigger "Focus Mode" for deep work sessions.
 
 The charts and numbers update in real-time as tasks are modified in the Calendar or Task Manager.
 
@@ -74,7 +73,6 @@ The charts and numbers update in real-time as tasks are modified in the Calendar
 * The dashboard must display three distinct stat cards (Total, Pending, Completed).
 * The system must calculate counts automatically from the task database.
 * The Weekly Progress Graph must render correctly using Chart.js.
-* The interface must include a vibrant "Enter Focus Mode" button in the header.
 * The layout must be responsive and visually consistent with the sidebar design.
 
 ---
@@ -85,7 +83,6 @@ The following functionality was implemented in the application:
 * An **Interactive To-Do Calendar** with full CRUD (Create, Read, Update, Delete) capabilities.
 * A **Vibrant Dashboard** with data visualization and progress tracking.
 * A **Task Management System** with file attachment support and status toggles.
-* A **Focus Mode (Pomodoro Timer)** with glassmorphism design for deep work.
 * A **User Profile and Settings** module for account customization.
 
 ---
