@@ -2,97 +2,135 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# EduFlow: Academic Planner
 
-## Description
+## Student Information
+- **Name:** MACABUHAY, JUNNEL P.  
+- **Application:** EduFlow Academic Management System  
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+# Overview
+This project is an **EduFlow web application** designed specifically for students to manage their academic life efficiently. The application provides a centralized dashboard where users can track school deadlines, visualize their schedule through an interactive calendar, and monitor study progress via data-driven graphs.
 
-```bash
-$ npm install
-```
+The system includes a **Task Management system** and an **Interactive To-Do Calendar**, helping students stay organized and ahead of their academic requirements.
 
-## Compile and run the project
+The system is designed to run **locally** (via NestJS and MySQL), ensuring fast performance and reliability for daily student use.
 
-```bash
-# development
-$ npm run start
+# Implemented Features
 
-# watch mode
-$ npm run start:dev
+For this assignment, two primary features were implemented in the EduFlow application:
 
-# production mode
-$ npm run start:prod
-```
+1.  **Interactive To-Do Calendar** (Add/Edit/Delete)
+2.  **Academic Dashboard Overview** (Vibrant Data Visualization)
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ npm run test
+# Feature 1 – Interactive To-Do Calendar
 
-# e2e tests
-$ npm run test:e2e
+### Purpose
+The purpose of this feature is to provide a visual timeline of all school deadlines, allowing students to plan their study sessions and manage time effectively.
 
-# test coverage
-$ npm run test:cov
-```
+### Expected User
+Students who need a bird's-eye view of their upcoming quizzes, assignments, and project deadlines.
 
-## Deployment
+### Main Functionality
+The system utilizes **FullCalendar.js** to provide a dynamic monthly grid where users can:
+* **Click a date box** to add a new academic task.
+* **Click existing tasks** to edit the description or delete them once completed.
+* **View tasks** as vibrant labels directly on the calendar grid.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Data is persisted through `localStorage` and synced with the backend to ensure the calendar is always up to date.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Acceptance Criteria
+* The user must be able to click any date to trigger the Add Task modal.
+* The user must be able to enter a task description.
+* The task must appear as a colored label on the selected date.
+* The user must be able to edit or update the task title by clicking it.
+* The user must be able to delete/remove a task upon completion.
+* Changes must be saved and persist after page refresh.
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+---
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+# Feature 2 – Academic Dashboard Overview
 
-## Resources
+### Purpose
+The purpose of this feature is to provide a high-level summary of a student's workload through vibrant, interactive statistics and graphs.
 
-Check out a few resources that may come in handy when working with NestJS:
+### Expected User
+Students who want to monitor their overall productivity and see exactly how many tasks are pending versus completed.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Main Functionality
+The dashboard serves as the command center, featuring:
+* **Vibrant Stat Cards:** High-contrast cards showing Total Tasks, Pending Tasks, and Completed Tasks.
+* **Progress Graph:** A Chart.js-powered line or bar graph showing study activity.
+* **Quick Navigation:** A specialized button to trigger "Focus Mode" for deep work sessions.
 
-## Support
+The charts and numbers update in real-time as tasks are modified in the Calendar or Task Manager.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Acceptance Criteria
+* The dashboard must display three distinct stat cards (Total, Pending, Completed).
+* The system must calculate counts automatically from the task database.
+* The Weekly Progress Graph must render correctly using Chart.js.
+* The interface must include a vibrant "Enter Focus Mode" button in the header.
+* The layout must be responsive and visually consistent with the sidebar design.
 
-## Stay in touch
+---
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# What I Implemented
+
+The following functionality was implemented in the application:
+* An **Interactive To-Do Calendar** with full CRUD (Create, Read, Update, Delete) capabilities.
+* A **Vibrant Dashboard** with data visualization and progress tracking.
+* A **Task Management System** with file attachment support and status toggles.
+* A **Focus Mode (Pomodoro Timer)** with glassmorphism design for deep work.
+* A **User Profile and Settings** module for account customization.
+
+---
+
+# Challenges Encountered
+
+* **State Synchronization:** Ensuring that a task added in the Calendar immediately reflected in the Dashboard stat counts.
+* **NestJS Static Assets:** Configuring `main.ts` to correctly serve the frontend files from the `public` directory.
+* **Chart.js Integration:** Customizing the gradient fills and responsiveness of the charts to maintain a "vibrant" aesthetic.
+* **FullCalendar Event Handling:** Mapping custom `localStorage` IDs to FullCalendar's internal event objects for seamless editing.
+
+---
+
+# Screenshots
+
+### Academic Dashboard Overview
+![Dashboard](screenshots/dashboard.png)
+
+### Interactive To-Do Calendar
+![Calendar](screenshots/calendar.png)
+
+### Task Management List
+![Tasks](screenshots/tasks.png)
+
+---
+
+# Technologies Used
+
+### Frontend
+* HTML5 & CSS3 (Custom Gradients)
+* JavaScript (Vanilla ES6+)
+* Bootstrap 5 (UI Framework)
+* FullCalendar.js (Calendar Component)
+* Chart.js (Data Visualization)
+
+### Backend
+* NestJS
+* TypeScript
+
+### Database
+* MySQL
+* phpMyAdmin (WAMP)
+* localStorage (Client-side redundancy)
+
+---
 
 ## License
-
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).

@@ -271,7 +271,7 @@ button[type="submit"] {
 }
 /* --- DARK MODE --- */
 body.dark-mode {
-    background-color: #121212 !important;
+    background-color: #1212129c !important;
     color: #ffffff !important;
 }
 
