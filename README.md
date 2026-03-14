@@ -102,13 +102,13 @@ The following functionality was implemented in the application:
 # Screenshots
 
 ### Academic Dashboard Overview
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](frontend/screenshots/dashboard.png)
 
 ### Interactive To-Do Calendar
-![Calendar](screenshots/calendar.png)
+![Calendar](frontend/screenshots/todocalendar.png)
 
 ### Task Management List
-![Tasks](screenshots/tasks.png)
+![Tasks](frontend/screenshots/taskstorage.png)
 
 ---
 
